@@ -2,9 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 
-export default function Home(props) {
+import Header from './Header';
+
+export default function Home({navigation}) {
     return (
         <View style={styles.container}>
+            <Header name="Home" openDrawer={navigation.openDrawer}/>
             <Text style={styles.header}>Getting Started</Text>
             <Text style={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
             <Text style={styles.description}>Ut in laoreet orci, id fringilla lacus.</Text>

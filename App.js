@@ -1,12 +1,30 @@
+import React from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+import {createDrawerNavigator} from "react-navigation-drawer";
 
-import Login from "./src/components/Login"
-import Home from "./src/components/Home"
+import Sidebar from "./src/components/Sidebar";
+import Login from "./src/components/Login";
+import Home from "./src/components/Home";
 
-const MainNavigator = createStackNavigator({
+const Drawer = createDrawerNavigator(
+    {
+        Home:{ screen: Home},
+        // Profile:{ screen: Profile},
+        // Settings:{ screen: Settings}
+
+    },
+    {
+        initialRouteName: "Home",
+        unmountInactiveRoutes: true,
+        headerMode: "none",
+        contentComponent: props => <Sidebar {...props} />
+    }
+)
+
+const AppNavigator = createStackNavigator({
         Login: {screen: Login},
-        Home: {screen: Home},
+        Drawer: {screen: Drawer},
     },
     {
       headerMode: 'none',
@@ -15,10 +33,16 @@ const MainNavigator = createStackNavigator({
       }
     });
 
-const App = createAppContainer(MainNavigator);
+const AppContainer = createAppContainer(AppNavigator);
 
-export default App;
+export default class App extends React.Component {
+    render() {
 
+        return (
+            <AppContainer/>
+        );
+    }
+}
 
 // import { StatusBar } from 'expo-status-bar';
 // import React from 'react';

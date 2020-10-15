@@ -6,13 +6,18 @@ import {createDrawerNavigator} from "react-navigation-drawer";
 import Sidebar from "./src/components/Sidebar";
 import Login from "./src/components/Login";
 import Home from "./src/components/Home";
+import CheckInHistory from "./src/components/CheckInHistory";
+import UserInfo from "./src/components/UserInfo";
+import ShowMap from "./src/components/ShowMap";
+import Help from "./src/components/Help";
 
 const Drawer = createDrawerNavigator(
     {
-        Home:{ screen: Home},
-        // Profile:{ screen: Profile},
-        // Settings:{ screen: Settings}
-
+        Home: { screen: Home },
+        CheckInHistory: { screen: CheckInHistory },
+        UserInfo: { screen: UserInfo },
+        ShowMap: { screen: ShowMap },
+        Help: { screen: Help }
     },
     {
         initialRouteName: "Home",
@@ -37,7 +42,6 @@ const AppContainer = createAppContainer(AppNavigator);
 
 export default class App extends React.Component {
     render() {
-
         return (
             <AppContainer/>
         );

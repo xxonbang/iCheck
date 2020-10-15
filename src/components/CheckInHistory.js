@@ -65,60 +65,13 @@ import Constants from "expo-constants";
 
 const fullScreenWidth = Dimensions.get('window').width * 0.9;
 
-export default function Home({navigation}) {
+export default function CheckInHistory({navigation}) {
     return (
         <View style={styles.container}>
-            <Header name="Home" openDrawer={navigation.openDrawer} navigation={navigation}/>
-            <View style={styles.userInfoContainer}>
-                <View style={styles.titleTextContainer}>
-                    <Text style={styles.titleText}>출근 정보</Text>
-                </View>
-                <View style={styles.checkInOutTimeContainer}>
-                    <View>
-                        <Text>출근시각</Text>
-                    </View>
-                    <View>
-                        <Text>퇴근시각</Text>
-                    </View>
-                </View>
+            <Header name="체크인 기록" openDrawer={navigation.openDrawer} navigation={navigation}/>
+            <View>
+                <Text>CheckInHistory</Text>
             </View>
-            <View style={styles.locationInfoContainer}>
-                <View style={styles.titleTextContainer}>
-                    <Text style={styles.titleText}>현재 위치 정보</Text>
-                </View>
-                <View style={styles.locationInfoContentsContainer}>
-                    <View style={styles.locationInfo}>
-                        <Text style={{ padding: 5 }}>위도</Text>
-                        <Text style={{ padding: 5 }}>경도</Text>
-                        <Text style={{ padding: 5 }}>주소</Text>
-                    </View>
-                    <View style={styles.checkInOutIconsContainer}>
-                        <View>
-                            <MaterialCommunityIcons
-                                size = {60}
-                                name = {'login'}
-                                color = 'black'/>
-                        </View>
-                        <View>
-                            <MaterialCommunityIcons
-                                size = {60}
-                                name = {'logout'}
-                                color = 'black'/>
-                        </View>
-                    </View>
-                </View>
-            </View>
-            <View style={styles.checkInSpotContainer}>
-                <View style={styles.titleTextContainer}>
-                    <Text style={styles.titleText}>출근 기준점</Text>
-                </View>
-                <View style={styles.detailInfoContainer}>
-                    <Text style={{ padding: 2 }}>오차</Text>
-                    <Text style={{ padding: 2 }}>출근 포인트</Text>
-                </View>
-            </View>
-            {/*<View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />*/}
-            {/*<EditScreenInfo path="/screens/MainScreen.js" />*/}
         </View>
     );
 }

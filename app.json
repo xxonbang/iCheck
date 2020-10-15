@@ -17,7 +17,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "kr.co.hist.icheck",
+      "config": {
+        "googleMapsApiKey": "AIzaSyCKCBcMrh9qk8BQyjjadkE_WIUQHS7w3lY"
+      }
+    },
+    "android": {
+      "package": "kr.co.hist.icheck"
     },
     "web": {
       "favicon": "./assets/favicon.png"

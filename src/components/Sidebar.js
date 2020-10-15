@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, FlatList, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Constants from "expo-constants";
 
 function Item({ item, navigate }) {
     return (
-        <TouchableOpacity style={styles.listItem} onPress={()=>navigate(item.name)}>
-            <MaterialCommunityIcons name={item.icon} size={32} />
+        <TouchableOpacity style={styles.listItem} onPress={()=>navigate(item.component)}>
+            <MaterialCommunityIcons name={item.icon} size={20} />
             <Text style={styles.title}>{item.name}</Text>
         </TouchableOpacity>
     );
@@ -16,16 +17,29 @@ export default class Sidebar extends React.Component {
         routes:[
             {
                 name:"Home",
+                component: "Home",
                 icon:"home"
             },
-            // {
-            //     name:"Profile",
-            //     icon:"ios-contact"
-            // },
-            // {
-            //     name:"Settings",
-            //     icon:"ios-settings"
-            // },
+            {
+                name:"체크인 기록",
+                component: "CheckInHistory",
+                icon:"history"
+            },
+            {
+                name:"사용자 정보",
+                component: "UserInfo",
+                icon:"information"
+            },
+            {
+                name:"지도 보기",
+                component: "ShowMap",
+                icon:"map"
+            },
+            {
+                name:"도움말",
+                component: "Help",
+                icon:"help"
+            },
         ]
     }
 
@@ -34,8 +48,8 @@ export default class Sidebar extends React.Component {
         return (
             <View style={styles.container}>
                 <Image source={require("../../assets/profile.jpg")} style={styles.profileImg}/>
-                <Text style={{fontWeight:"bold",fontSize:16,marginTop:10}}>Janna Doe</Text>
-                <Text style={{color:"gray",marginBottom:10}}>janna@doe.com</Text>
+                <Text style={{fontWeight:"bold",fontSize:16,marginTop:10}}>Jieun Lee</Text>
+                <Text style={{color:"gray",marginBottom:10}}>jieunlee@iu.com</Text>
                 <View style={styles.sidebarDivider}></View>
                 <FlatList
                     style={{width:"100%",marginLeft:30}}
@@ -51,7 +65,7 @@ export default class Sidebar extends React.Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#fff",
-        paddingTop:40,
+        marginTop: Constants.statusBarHeight,
         alignItems:"center",
         flex:1
     },
@@ -59,6 +73,9 @@ const styles = StyleSheet.create({
         height:60,
         alignItems:"center",
         flexDirection:"row",
+    },
+    title: {
+        marginLeft: 10
     },
     profileImg:{
         width:80,
